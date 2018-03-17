@@ -4,6 +4,6 @@ export const addAnswer = ({commit}, payload) => {
   commit(types.ADD_ANSWER, payload)
 };
 
-export const cleatAnswers = ({commit}) => {
+export const clearAnswers = ({commit}) => {
   commit(types.CLEAR_ANSWER)
 };

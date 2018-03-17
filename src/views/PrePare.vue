@@ -31,10 +31,10 @@
     created() {
       this.currentBook = this.allBooks[+this.bookIndex];
       this.currentChap = this.currentBook.bookList[+this.chapIndex];
-      this.cleatAnswers()
+      this.clearAnswers()
     },
     methods: {
-      ...mapActions(['cleatAnswers']),
+      ...mapActions(['clearAnswers']),
       goTo() {
         this.$router.push(`/exercise/${this.bookIndex}/workcard/${this.chapIndex}`)
       }
