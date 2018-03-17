@@ -1,0 +1,5 @@
+export const ADD_ANSWER = "ADD_ANSWER";
+export const CLEAR_ANSWER = "CLEAR_ANSWER";
+export const SET_SPENT_TIME = "SET_SPENT_TIME";
+
+export const SET_CURRENT_BOOK_INDEX ="SET_CURRENT_BOOK_INDEX";
