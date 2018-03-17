@@ -10,6 +10,7 @@
     "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
   },
   "dependencies": {
+    "fastclick": "^1.0.6",
     "isomorphic-fetch": "^2.2.1",
     "querystring": "^0.2.0",
     "vue": "^2.5.11",

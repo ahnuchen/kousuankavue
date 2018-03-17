@@ -6,6 +6,9 @@ import routes from './route-config.js';
 import App from './views/App.vue';
 import store from './store/index.js';
 import './style/index.scss';
+import FastClick from 'fastclick'
+
+FastClick.attach(document.body);
 
 Vue.mixin({
   props: {
