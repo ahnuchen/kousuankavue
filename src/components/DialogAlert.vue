@@ -36,11 +36,11 @@
       },
       leftText: {
         type: String,
-        default: "放弃"
+        default: "不会做"
       },
       rightText: {
         type: String,
-        default: "不放弃"
+        default: "会做"
       }
     },
     methods: {

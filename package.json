@@ -7,10 +7,12 @@
   "private": true,
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "dll":"cross-env NODE_ENV=production webpack -p --progress --config ./webpack.config.dll.js",
-    "scss":"node-sass ./src/style/index.scss ./dist/css/index.css --source-map true --source-map-contents sass",
+    "dll": "cross-env NODE_ENV=production webpack -p --progress --config ./webpack.config.dll.js",
+    "scss": "node-sass ./src/style/index.scss ./dist/css/index.css --source-map true --source-map-contents sass",
     "build": "npm run clean && npm run dll && npm run scss && cross-env NODE_ENV=production webpack --progress --hide-modules",
-    "clean" : "rd /s /q .\\dist"
+    "build:mac": "npm run clean:mac && npm run dll && npm run scss && cross-env NODE_ENV=production webpack --progress --hide-modules",
+    "clean": "rd /s /q .\\dist",
+    "clean:mac": "rm -rf ./dist"
   },
   "dependencies": {
     "fastclick": "^1.0.6",
