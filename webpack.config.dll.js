@@ -2,7 +2,6 @@ const path = require('path')
 const webpack = require('webpack');
 const {dependencies} = require('./package.json');
 const pkg = Object.keys(dependencies);
-console.log(pkg)
 module.exports = {
   entry: {
     vendor: pkg
