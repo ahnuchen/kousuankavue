@@ -31,14 +31,10 @@
 
 <script>
 
-  import XHeader from '../components/XHeader'
   import {mapGetters} from 'vuex'
 
   export default {
     name: "exercise-list",
-    components: {
-      XHeader
-    },
     computed: {
       ...mapGetters(['allBooks'])
     },
