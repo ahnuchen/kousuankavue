@@ -44,7 +44,6 @@
 
 <script>
 
-  import XHeader from '../components/XHeader'
   import DialogAlert from '../components/DialogAlert'
   import TimeCounter from '../components/TimeCounter'
   import {mapGetters, mapActions} from 'vuex'
@@ -52,7 +51,6 @@
   export default {
     name: "work-card",
     components: {
-      XHeader,
       DialogAlert,
       TimeCounter
     },

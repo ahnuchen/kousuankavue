@@ -20,14 +20,10 @@
 </template>
 
 <script>
-  import XHeader from '../components/XHeader'
   import {mapGetters} from 'vuex'
 
   export default {
     name: "book-list",
-    components: {
-      XHeader
-    },
     computed: {
       ...mapGetters(['allBooks'])
     },

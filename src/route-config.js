@@ -1,36 +1,34 @@
 import BookList from './views/BookList.vue';
-import ExerciseList from './views/ExerciseList.vue';
-import PrePare from './views/PrePare.vue';
-import WorkCard from './views/WorkCard';
-import Result from './views/Result.vue';
-import AllWrongView from './views/AllWrongView.vue';
-
-
 export default [
   {
     path: '/', component: BookList,
   },
   {
     path: '/exercise/:bookIndex',
-    component: ExerciseList,
+    // component: r => require.ensure([], () => r(require('./views/ExerciseList.vue')), 'ExerciseList'),
+    component:function(r){
+      return require.ensure([],function () {
+        return r(require('./views/ExerciseList.vue'))
+      },'ExerciseList')
+    },
     props: true
   }, {
     path: '/exercise/:bookIndex/prepare/:chapIndex',
-    component: PrePare,
+    component: r => require.ensure([], () => r(require('./views/PrePare.vue')), 'PrePare'),
     props: true,
   }, {
     path: '/exercise/:bookIndex/workcard/:chapIndex',
-    component: WorkCard,
+    component: r => require.ensure([], () => r(require('./views/WorkCard')), 'WorkCard'),
     props: true,
 
   }, {
     path: '/exercise/:bookIndex/result/:chapIndex',
-    component: Result,
+    component: r => require.ensure([], () => r(require('./views/Result.vue')), 'Result'),
     props: true,
 
   }, {
     path: '/exercise/:bookIndex/allwrongview/:chapIndex',
-    component: AllWrongView,
+    component: r => require.ensure([], () => r(require('./views/AllWrongView.vue')), 'AllWrongView'),
     props: true,
   }
 ]

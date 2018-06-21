@@ -1,12 +1,12 @@
-var path = require('path')
-var webpack = require('webpack')
-
+const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: './src/main.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: 'build.js'
+    filename: 'js/[name].[hash].js',
+    chunkFilename: 'js/[name].[chunkhash].min.js'
   },
   module: {
     rules: [
@@ -64,19 +64,16 @@ module.exports = {
         test: /\.(png|jpg|gif|svg)$/,
         loader: 'file-loader',
         options: {
-          name: '[name].[ext]?[hash]'
+          name: 'images/[name].[ext]?[hash]'
         }
       }
     ]
   },
   resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue.esm.js'
-    },
     extensions: ['*', '.js', '.vue', '.json']
   },
   devServer: {
-    port:5005,
+    port: 5005,
     historyApiFallback: true,
     noInfo: true,
     overlay: true
@@ -84,7 +81,15 @@ module.exports = {
   performance: {
     hints: false
   },
-  devtool: '#eval-source-map'
+  devtool: '#eval-source-map',
+  plugins: [
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html',
+      inject: true,
+      chunksSortMode: 'dependency'
+    })
+  ]
 }
 
 if (process.env.NODE_ENV === 'production') {
@@ -104,6 +109,10 @@ if (process.env.NODE_ENV === 'production') {
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true
-    })
+    }),
+    new webpack.DllReferencePlugin({
+      manifest: require('./manifest.json'), // 指定manifest.json
+      name: 'vendor',  // 当前Dll的所有内容都会存放在这个参数指定变量名的一个全局变量下，注意与DllPlugin的name参数保持一致
+    }),
   ])
 }

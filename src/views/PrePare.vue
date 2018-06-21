@@ -17,14 +17,10 @@
 </template>
 <script>
 
-  import XHeader from '../components/XHeader'
   import {mapGetters, mapActions} from 'vuex'
 
   export default {
     name: "pre-pare",
-    components: {
-      XHeader
-    },
     computed: {
       ...mapGetters(['allBooks'])
     },

@@ -34,14 +34,10 @@
 </template>
 
 <script>
-  import XHeader from '../components/XHeader'
   import {mapGetters} from 'vuex'
 
   export default {
     name: "result",
-    components: {
-      XHeader
-    },
     computed: {
       ...mapGetters(['myAnswers'])
     },
